@@ -54,15 +54,15 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/members", async (req: Request, res: Response) => {
-  //   res.send(codeologyMembers);
-  res.send(await prisma.user.findMany());
+  res.send(codeologyMembers);
+  // res.send(await prisma.user.findMany());
 });
 
 app.post("/members", async (req: Request, res: Response) => {
-  //   codeologyMembers.push(req.body as Member);
-  await prisma.user.create({
-    data: req.body as Member,
-  });
+  codeologyMembers.push(req.body as Member);
+  // await prisma.user.create({
+  //   data: req.body as Member,
+  // });
   res.send("OK");
 });
 
